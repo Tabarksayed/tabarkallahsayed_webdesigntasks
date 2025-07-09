@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Animation</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .circle {
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: moveTriangle 7s infinite linear;
+        }
+
+        @keyframes moveTriangle {
+            0% {
+                left: 0;
+                top: 0;
+                background-color: red;
+            }
+            33.33% {
+                left: calc(50vw - 40px); 
+                top: 0;
+                background-color: orange;
+            }
+            66.67% {
+                left: calc(50vw - 40px);
+                top: calc(100vh - 80px); 
+                background-color: orange;
+            }
+            100% {
+                left: 0;
+                top: 0;
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+</body>
+</html>

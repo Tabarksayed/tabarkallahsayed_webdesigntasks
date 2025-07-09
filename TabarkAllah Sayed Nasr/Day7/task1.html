@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Offer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c2526;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; 
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            flex-wrap: wrap; 
+        }
+        .card {
+            background-color: #e0e0e0;
+            color: #000;
+            width: 300px; 
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .card img {
+            width: 150px; 
+            height: 150px;
+            border-radius: 50%; 
+            object-fit: cover;
+        }
+        .card h2 {
+            font-size: 1.5em;
+            font-family:cursive
+        }
+        .card p {
+            font-size: 15px;
+            color: white;
+        }
+        .card a {
+            color: #ff6200;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .card a:hover {
+            color: #cc4d00; 
+        }
+        .discount {
+            text-align: center;
+            font-size: 2em;
+            color: #ff6200;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="../images/day71.jpg" alt="Chef">
+            <h2>Best Chef</h2>
+            <p>Explore gourmet cuisine, meal dishes, and recipes with expert culinary art. Enjoy premium ingredients and professional preparation.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="card">
+            <img src="../images/day72.jpg" alt="Menu">
+            <h2>Menu Variations</h2>
+            <p>Discover a variety of options with healthy, nutritious meals. Includes fresh, organic ingredients for a wholesome diet.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="card">
+            <img src="../images/day73.jpg" alt="Herbal Tea">
+            <h2>Healthy Food</h2>
+            <p>Savor tasty tea infusions with citrus fruit and natural flavors. Perfect beverage for wellness and fine dining.</p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+    <div class="discount">Discount Offer: 30% Off</div>
+</body>
+</html>
