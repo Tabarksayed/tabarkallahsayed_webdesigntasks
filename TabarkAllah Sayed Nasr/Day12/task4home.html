@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Even or Odd Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8f0fe;
+      padding: 50px;
+      text-align: center;
+    }
+    .box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Check if a Number is Even or Odd</h1>
+  <div class="box" id="resultBox">
+    <p>Please enter a number when prompted.</p>
+  </div>
+
+  <script>
+    let evenOdd = parseInt(prompt("Enter a number to check even or odd:"));
+    while (isNaN(evenOdd)) {
+      evenOdd = parseInt(prompt("❌ Invalid input. Please enter a valid number:"));
+    }
+
+    let resultText = (evenOdd % 2 === 0)
+      ? `✅ The number ${evenOdd} is <span style="color: green;">Even</span>.`
+      : `🔵 The number ${evenOdd} is <span style="color: blue;">Odd</span>.`;
+
+    document.getElementById("resultBox").innerHTML = `
+      <p>You entered: <strong>${evenOdd}</strong></p>
+      <div class="result">${resultText}</div>
+    `;
+  </script>
+</body>
+</html>

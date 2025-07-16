@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Grades Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      text-align: left;
+    }
+    .subject {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Grades Calculator</h1>
+  <p>Enter marks when prompted. Results will appear below.</p>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const subjects = ['Physics', 'Chemistry', 'Biology', 'Mathematics', 'Computer'];
+    let total = 0;
+    let output = '';
+
+    function getGrade(mark) {
+      let percent = (mark / 20) * 100;
+      if (percent >= 90) return 'A';
+      else if (percent >= 80) return 'B';
+      else if (percent >= 70) return 'C';
+      else if (percent >= 60) return 'D';
+      else if (percent >= 40) return 'E';
+      else return 'F';
+    }
+
+    for (let i = 0; i < subjects.length; i++) {
+        let mark = parseInt(prompt(`Enter marks for ${subjects[i]} out of 20:`));
+        while (isNaN(mark) || mark < 0 || mark > 20) {
+            alert("❌ Please enter a valid number between 0 and 20.");
+            mark = parseInt(prompt(`Re-enter marks for ${subjects[i]}:`));
+        }
+        total += mark;
+        const subjectGrade = getGrade(mark);
+        output += `<p class="subject"><strong>${subjects[i]}:</strong> ${mark}/20 → Grade ${subjectGrade}</p>`;
+    }
+
+    const percentage = (total / 100) * 100;
+    let overallGrade = '';
+
+    if (percentage >= 90) overallGrade = 'A';
+    else if (percentage >= 80) overallGrade = 'B';
+    else if (percentage >= 70) overallGrade = 'C';
+    else if (percentage >= 60) overallGrade = 'D';
+    else if (percentage >= 40) overallGrade = 'E';
+    else overallGrade = 'F';
+
+    output += `<hr>`;
+    output += `<p><strong>Total Marks:</strong> ${total}/100</p>`;
+    output += `<p><strong>Percentage:</strong> ${percentage}%</p>`;
+    output += `<p><strong>Overall Grade:</strong> ${overallGrade}</p>`;
+
+    document.getElementById('result').innerHTML = output;
+  </script>
+</body>
+</html>

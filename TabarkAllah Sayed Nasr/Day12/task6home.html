@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      padding: 40px;
+      text-align: center;
+    }
+    .box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Basic Calculator</h1>
+  <div class="box" id="resultBox">
+    <p>Enter two numbers and an operation (+, -, *, /, %)</p>
+  </div>
+
+  <script>
+    let n1 = parseFloat(prompt("Enter first number:"));
+    while (isNaN(n1)) {
+      n1 = parseFloat(prompt("❌ Please enter a valid first number:"));
+    }
+
+    let n2 = parseFloat(prompt("Enter second number:"));
+    while (isNaN(n2)) {
+      n2 = parseFloat(prompt("❌ Please enter a valid second number:"));
+    }
+
+    let op = prompt("Enter operation (+, -, *, /, %):").trim();
+    let calcResult;
+
+    if (op === '+') calcResult = n1 + n2;
+    else if (op === '-') calcResult = n1 - n2;
+    else if (op === '*') calcResult = n1 * n2;
+    else if (op === '/') calcResult = (n2 !== 0) ? (n1 / n2) : "❌ Cannot divide by zero";
+    else if (op === '%') calcResult = n1 % n2;
+    else calcResult = "❌ Invalid operator";
+
+    const resultBox = document.getElementById("resultBox");
+
+    resultBox.innerHTML += `
+      <div class="result">
+        ${isNaN(calcResult) ? calcResult : `${n1} ${op} ${n2} = ${calcResult}`}
+      </div>
+    `;
+  </script>
+</body>
+</html>

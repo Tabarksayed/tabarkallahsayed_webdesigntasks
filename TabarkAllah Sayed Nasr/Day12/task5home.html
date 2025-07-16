@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Root Calculator (No Built-in)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+    .box {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Root Calculator without Built-in Functions</h1>
+  <div class="box" id="resultBox">
+    <p>Enter number and root value using prompts.</p>
+  </div>
+
+  <script>
+    
+    function power(base, exp) {
+      let result = 1;
+      for (let i = 0; i < exp; i++) {
+        result *= base;
+      }
+      return result;
+    }
+
+    
+    function nthRoot(number, root, iterations = 20) {
+      let guess = number / root;
+      for (let i = 0; i < iterations; i++) {
+        let numerator = (root - 1) * guess + number / power(guess, root - 1);
+        guess = numerator / root;
+      }
+      return guess;
+    }
+
+   
+    let number = parseFloat(prompt("Enter a positive number:"));
+    while (isNaN(number) || number <= 0) {
+      number = parseFloat(prompt("❌ Please enter a valid positive number:"));
+    }
+
+    let root = parseInt(prompt("Enter the root value (e.g., 2 for square root):"));
+    while (isNaN(root) || root <= 0) {
+      root = parseInt(prompt("❌ Please enter a valid root (e.g., 2, 3, 4):"));
+    }
+
+    let result = nthRoot(number, root);
+
+    document.getElementById("resultBox").innerHTML = `
+      <p>Number: <strong>${number}</strong></p>
+      <p>Root: <strong>${root}</strong></p>
+      <div class="result">🔍 Approximate ${root}<sup>th</sup> root of ${number} is: <strong>${result.toFixed(6)}</strong></div>
+    `;
+  </script>
+</body>
+</html>

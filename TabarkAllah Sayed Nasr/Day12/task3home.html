@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Positive or Negative Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      padding: 50px;
+      text-align: center;
+    }
+    .box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Check if a Number is Positive, Negative, or Zero</h1>
+  <div class="box" id="resultBox">
+    <p>Please enter a number in the prompt.</p>
+  </div>
+
+  <script>
+    let numCheck = parseFloat(prompt("Enter a number to check if it's positive or negative:"));
+    while (isNaN(numCheck)) {
+      numCheck = parseFloat(prompt("❌ Invalid input. Please enter a valid number:"));
+    }
+
+    let resultText = "";
+    if (numCheck > 0) {
+      resultText = `✅ The number ${numCheck} is <span style="color: green;">Positive</span>.`;
+    } else if (numCheck < 0) {
+      resultText = `⚠️ The number ${numCheck} is <span style="color: red;">Negative</span>.`;
+    } else {
+      resultText = `🟡 The number is <span style="color: gray;">Zero</span>.`;
+    }
+
+    document.getElementById("resultBox").innerHTML = `
+      <p>You entered: <strong>${numCheck}</strong></p>
+      <div class="result">${resultText}</div>
+    `;
+  </script>
+</body>
+</html>
