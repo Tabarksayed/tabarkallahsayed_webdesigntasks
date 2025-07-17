@@ -226,6 +226,7 @@ html {
 
 .service-box:hover .icon-wrapper {
     background-color: currentColor;
+    
 }
 
 .service-box:hover .icon-wrapper i {
