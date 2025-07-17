@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Game</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .rectangle {
+            width: 300px;
+            height: 150px;
+            background-color: yellow;
+            margin-bottom: 20px;
+        }
+        .circles {
+            display: flex;
+            justify-content: center;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="rectangle" id="rectangle"></div>
+        <div class="circles">
+            <div class="circle" id="circle1" style="background-color: green;" onclick="changeColor('circle1')"></div>
+            <div class="circle" id="circle2" style="background-color: blue;" onclick="changeColor('circle2')"></div>
+            <div class="circle" id="circle3" style="background-color: red;" onclick="changeColor('circle3')"></div>
+        </div>
+    </div>
+
+    <script>
+        const rectangle = document.getElementById('rectangle');
+        let rectColor = localStorage.getItem('rectColor') || 'yellow';
+        rectangle.style.backgroundColor = rectColor;
+
+        function changeColor(circleId) {
+            const circle = document.getElementById(circleId);
+            const circleColor = window.getComputedStyle(circle).backgroundColor;
+            rectangle.style.backgroundColor = circleColor;
+            localStorage.setItem('rectColor', circleColor);
+        }
+    </script>
+</body>
+</html>
